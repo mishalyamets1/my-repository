@@ -4,7 +4,7 @@ const emailInput = document.getElementById('email');
 emailInput.addEventListener('email',validateEmail); 
 
 function validateEmail() {
-    const emailRegex = /[A-Za-z0-9_-\.] {2,10}@[a-z0-9\.-_].{1,10}\.[a-z]{2,3}/;
+    const emailRegex = /[A-Za-z0-9_\-\.] {2,10}@[a-z0-9\.\-_].{1,10}\.[a-z]{2,3}/;
     if(emailRegex.test(emailInput.value)){
         removeError(emailInput); //убираем ошибку
         return true;
