@@ -1,61 +1,331 @@
+/* Форма */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-m);
+  padding: var(--space-l);
+  background: var(--color-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  max-width: 350px;
+  margin: var(--space-xl) auto;
+}
+.form__label {
+  font-weight: bold;
+  margin-bottom: var(--space-xs);
+}
+.form__input {
+  border: 2px solid var(--color-primary);
+  border-radius: var(--radius);
+  padding: var(--space-s);
+  font-size: 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.form__input:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px var(--color-primary);
+}
+.form__button {
+  padding: var(--space-s) var(--space-m);
+  border-radius: var(--radius);
+  background: var(--color-primary);
+  color: #fff;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.form__button:hover,
+.form__button:focus-visible {
+  background: #0057b8;
+}
+.form__button--secondary {
+  background: #eee;
+  color: var(--color-fg);
+  border: 1px solid var(--color-muted);
+}
+.error {
+  border: 2px solid var(--color-danger);
+  background: #ffeaea;
+  color: var(--color-danger);
+  padding: var(--space-xs);
+  border-radius: var(--radius);
+  margin-bottom: var(--space-xs);
+}
+/* Модальное окно */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+.modal__content {
+  background: var(--color-bg);
+  padding: var(--space-xl);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  position: relative;
+}
+.modal__close {
+  position: absolute;
+  top: var(--space-xs);
+  right: var(--space-xs);
+  font-size: 2rem;
+  color: var(--color-danger);
+  cursor: pointer;
+}
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-size: 0.95rem;
+  margin: var(--space-m) 0;
+}
+.breadcrumbs__link {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: text-decoration 0.2s;
+}
+.breadcrumbs__link:hover,
+.breadcrumbs__link:focus-visible {
+  text-decoration: underline;
+}
+.breadcrumbs__sep {
+  color: var(--color-muted);
+}
+.breadcrumbs__current {
+  color: var(--color-fg);
+  font-weight: bold;
+}
+.section:target {
+  box-shadow: 0 0 0 4px var(--color-primary);
+  background: rgba(10, 132, 255, 0.08);
+  transition: box-shadow 0.3s, background 0.3s;
+}
 /* сбравсываем стартовые стили */
 
 * {
-    margin: 0; /* внешний отступ */
-    /* внутр отступ */
-    padding: 0; 
+  margin: 0; /* внешний отступ */
+  /* внутр отступ */
+  padding: 0;
 
-    box-sizing: border-box;
-
-
+  box-sizing: border-box;
 }
-input, button {
-    border: 0;
-    outline: 0;
-    font-family: inherit;
-    font-size: inherit;
+input,
+button {
+  border: 0;
+  outline: 0;
+  font-family: inherit;
+  font-size: inherit;
 }
 /* свои стили */
 label {
-    display: block;    /* label вертикально */
-    font-weight: bold; /* полужирный*/
-    margin-bottom: 10px; 
-    margin-top: 10px;
+  display: block;
+  font-weight: bold;
+  margin-bottom: var(--space-s);
+  margin-top: var(--space-s);
 }
 
 input {
-    border: 3px solid #a50fe0;
-    border-radius: 10px;
-    padding: 5px;
+  border: 3px solid #a50fe0;
+  border-radius: var(--radius);
+  padding: var(--space-s);
 }
 input:focus {
-    background-color: rgb(15, 111, 255); 
+  background-color: rgb(15, 111, 255);
 }
 button {
-    padding: 5px;
-    border: 3px solid #0f12e0;
-    border-radius: 10px;
-    background-color: #0f12e0;
-    color:#fff ;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    transition:all 0.3s ease;
+  padding: var(--space-s);
+  border: 3px solid #0f12e0;
+  border-radius: var(--radius);
+  background-color: #0f12e0;
+  color: #fff;
+  font-family: var(--font-body);
+  transition: all 0.3s ease;
 }
 
 button:hover {
-    background-color: aliceblue;
-    color:#0f12e0; 
+  background-color: aliceblue;
+  color: #0f12e0;
 }
 
 #ContactForm {
-    border: 3px solid #a50fe0;
-     border-radius: 10px;
-     background-color: rgb(229, 241, 51);
-     padding: 10px;
-     max-width: 250px;
+  border: 3px solid #a50fe0;
+  border-radius: var(--radius);
+  background-color: rgb(229, 241, 51);
+  padding: var(--space-m);
+  max-width: 250px;
 }
 .error {
-    border: 3px solid red;
-    border-radius: 10px;
-    background-color: lightcoral;
-    color: brown;
+  border: 3px solid var(--color-danger);
+  border-radius: var(--radius);
+  background-color: lightcoral;
+  color: brown;
+}
+
+/* Токены отступов и переменные */
+:root {
+  --space-xxs: 2px;
+  --space-xs: 4px;
+  --space-s: 8px;
+  --space-m: 16px;
+  --space-l: 24px;
+  --space-xl: 40px;
+  --color-bg: #fff;
+  --color-fg: #0b0b0b;
+  --color-muted: #666;
+  --color-primary: #0a84ff;
+  --color-danger: #b00020;
+  --font-body: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --radius: 12px;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.08), 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+/* Тёмная тема: переопределяем только значения токенов */
+body.theme-dark {
+  --color-bg: #4b1a1a;
+  --color-fg: #f5f5f5;
+  --color-muted: #aaa;
+  --color-primary: #6aa2ff;
+}
+/* Reset-минимум — подробнее в 1.8 */
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-fg);
+  font-family: var(--font-body);
+  line-height: 1.5;
+}
+a:link {
+}
+a:visited {
+}
+a:hover {
+}
+a:active {
+}
+/* :where(...) не добавляет специфичности — проще переопределять позже */
+:where(a, button, input, select, textarea):focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+/* Недоступные элементы визуально «приглушаем» */
+:disabled,
+[aria-disabled="true"] {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+html {
+  scroll-behavior: smooth;
+} /* Плавная прокрутка к #якорю */
+:target {
+  outline: 2px dashed var(--color-primary);
+  outline-offset: 4px;
+} /*
+Подсветка цели */
+/* Reset-минимум — подробнее в 1.8 */
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background: var(--color-bg);
+  color: var(--color-fg);
+  font-family: var(--font-body);
+  line-height: 1.5;
+}
+/* Центровка и ограничение ширины контейнера */
+.container {
+  width: min(100% - 2 * var(--space-l), 1120px);
+  margin-inline: auto;
+}
+/* Вертикальные отступы секций по токенам */
+.section {
+  padding-block: var(--space-xl);
+}
+.section__title {
+  margin: 0 0 var(--space-m);
+}
+/* Антипаттерн: селектор тяжёлый и хрупкий */
+#header .menu .item a {
+  color: #333;
+}
+/* Хорошо: опора на БЭМ-класс компонента */
+.site-header {
+  background: var(--color-bg);
+  box-shadow: var(--shadow);
+  padding: var(--space-m) 0;
+}
+.site-header__brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--color-primary);
+  text-decoration: none;
+  margin-left: var(--space-l);
+}
+.site-nav {
+  margin-left: var(--space-xl);
+}
+.site-nav__list {
+  display: flex;
+  gap: var(--space-l);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.site-nav__item {
+}
+.site-nav__link {
+  color: var(--color-fg);
+  text-decoration: none;
+  font-size: 1rem;
+  padding: var(--space-xs) var(--space-s);
+  border-radius: var(--radius);
+  transition: background 0.2s, color 0.2s;
+}
+.site-nav__link:hover,
+.site-nav__link:focus-visible {
+  background: var(--color-primary);
+  color: #fff;
+}
+.site-nav__link--active {
+  background: var(--color-primary);
+  color: #fff;
+  font-weight: bold;
+}
+.site-nav__link--cta {
+  background: var(--color-primary);
+  color: #fff;
+  font-weight: bold;
+  border: 2px solid var(--color-primary);
+}
+/* Герой-секция: затемняющий градиент поверх фонового изображения */
+.hero {
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.15)),
+    /* оверлей для
+контраста текста */ url("img/hero-1920.jpg") center/cover
+      no-repeat; /* картинка
+как декор */
+  color: #fff;
+  padding: clamp(2rem, 6vw, 6rem) 1rem; /* адаптивные
+отступы */
+  border-radius: var(--radius);
 }
