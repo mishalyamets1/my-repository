@@ -1,24 +1,30 @@
 <!DOCTYPE html>
 <html lang="ru">
   <head>
-    ...
-    <!-- Скопируйте весь блок <head> из index.html -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>О нас - Название вашего сайта</title>
     <meta
       name="description"
       content="Узнайте больше о нашей компании и истории"
     />
-    <link rel="stylesheet" href="../src/static/style.css">
+    <link rel="stylesheet" href="static/style.css" />
   </head>
-  <body>
-    <header>
-      <a href="/">Логотип или название сайта</a>
-      <!-- Главное меню навигации -->
-      <nav>
-        <ul>
-          <li><a href="index.html">Главная</a></li>
-          <li><a href="about.html">О нас</a></li>
-          <li><a href="contacts.html">Контакты</a></li>
+  <body class="theme-dark">
+    <header class="site-header">
+      <a class="site-header__brand" href="/">Лого</a>
+      <nav class="site-nav" aria-label="Основная навигация">
+        <ul class="site-nav__list">
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="index.html">Главная</a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="about.html">О нас</a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link site-nav__link-- cta" href="#contacts"
+              >Связаться</a>
+          </li>
         </ul>
       </nav>
     </header>
@@ -37,38 +43,39 @@
         <h2>Наша команда</h2>
         <p>Текст о команде...</p>
 
-
         <h1></h1>
-        <form action="" id="ContactForm">
-            <label for="username">Ваше имя</label>
-            <input type="text" id="name" name="username" required>
+        <form action="" id="ContactForm" class="form">
+          <label class="form__label" for="username">Ваше имя</label>
+          <input class="form__input" type="text" id="name" name="username" required />
 
-            <label for="phone">Ваш номер телефона</label>
-            <input type="text" id="phone" name="phone" required>
+          <label class="form__label" for="phone">Ваш номер телефона</label>
+          <input class="form__input" type="text" id="phone" name="phone" required />
 
-            <label for="email">Ваш имейл:</label>
-            <input type="text" id="email" name="email" required>
+          <label class="form__label" for="email">Ваш имейл:</label>
+          <input class="form__input" type="text" id="email" name="email" required />
 
-            <label for="course">Ваш курс:</label>
-            <select name="course" id="course">
-                
-                <option value="NO">не выбрано</option>
-                <option value="1">1 курс</option>
-                <option value="2">2 курс</option>
-                <option value="3">3 курс</option>
-                <option value="4">4 курс</option>
-            </select>
+          <label class="form__label" for="course">Ваш курс:</label>
+          <select class="form__input" name="course" id="course">
+            <option value="NO">не выбрано</option>
+            <option value="1">1 курс</option>
+            <option value="2">2 курс</option>
+            <option value="3">3 курс</option>
+            <option value="4">4 курс</option>
+          </select>
 
-            <label for="message">Ваше сообщение</label>
-            <textarea name="message" id="message" rows="6" required></textarea>
+          <label class="form__label" for="message">Ваше сообщение</label>
+          <textarea class="form__input" name="message" id="message" rows="6" required></textarea>
 
-            <button type="submit" id="submit" name="submit">Отправить</button>
-            <button type="reset" id="reset" name="reset">Очистить</button>
-
-
-
-
+          <button class="form__button" type="submit" id="submit" name="submit">Отправить</button>
+          <button class="form__button form__button--secondary" type="reset" id="reset" name="reset">Очистить</button>
         </form>
+        <!-- Модальное окно -->
+        <div id="modal" class="modal" style="display:none;">
+          <div class="modal__content">
+            <span class="modal__close" id="modalClose">×</span>
+            <p>Спасибо! Ваше сообщение отправлено.</p>
+          </div>
+        </div>
       </section>
     </main>
     <footer>
